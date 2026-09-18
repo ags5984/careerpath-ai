@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./lib/firebase";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import AssessmentPage from "./pages/AssessmentPage";
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/dashboard" element={user ? <Dashboard /> : <Home />} />
           </Routes>
         </main>
+        <SpeedInsights />
       </div>
     </Router>
   );
