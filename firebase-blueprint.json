@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "user": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["uid", "email"]
+    },
+    "assessment": {
+      "title": "Assessment",
+      "description": "Career assessment responses and results",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "answers": { "type": "object" },
+        "roadmapData": { "type": "object" }
+      },
+      "required": ["userId", "timestamp", "answers", "roadmapData"]
+    },
+    "interview": {
+      "title": "Interview",
+      "description": "Mock interview session and feedback",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "transcript": { "type": "array" },
+        "feedback": { "type": "string" }
+      },
+      "required": ["userId", "timestamp", "transcript", "feedback"]
+    },
+    "resume": {
+      "title": "Resume",
+      "description": "Optimized resume data",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "originalText": { "type": "string" },
+        "optimizedText": { "type": "string" },
+        "suggestions": { "type": "array" },
+        "keywordsAdded": { "type": "array" },
+        "targetCareer": { "type": "string" },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["userId", "originalText", "optimizedText", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "user",
+      "description": "Store user profiles"
+    },
+    "/assessments/{assessmentId}": {
+      "schema": "assessment",
+      "description": "Store career assessments"
+    },
+    "/interviews/{interviewId}": {
+      "schema": "interview",
+      "description": "Store mock interview feedback"
+    },
+    "/resumes/{resumeId}": {
+      "schema": "resume",
+      "description": "Store optimized resumes"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "CareerPath AI",
+  "description": "AI-powered career suggestion platform with skills assessment, personalized roadmaps, mock interviews, and resume optimization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
